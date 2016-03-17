@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 加载Traceur编译器 -->
+    <script src="http://google.github.io/traceur-compiler/bin/traceur.js"
+            type="text/javascript"></script>
+    <!-- 将Traceur编译器用于网页 -->
+    <script src="http://google.github.io/traceur-compiler/src/bootstrap.js"
+            type="text/javascript"></script>
+    <!-- 打开实验选项，否则有些特性可能编译不成功 -->
+
+</head>
+<body>
+<script type="module">
+    var str = "Hello world!";
+
+    console.log(str.startsWith("Hello")) // true
+    console.log(str.endsWith("!")) // true
+    console.log(str.includes("o")) // true
+
+//这三个方法都支持第二个参数，表示开始搜索的位置
+
+    var str = "Hello world!";
+
+    console.log(str.startsWith("world", 6)) // true
+    console.log(str.endsWith("Hello", 5)) // true
+    console.log(str.includes("Hello", 6)) // false
+</script>
+</body>
+</html>

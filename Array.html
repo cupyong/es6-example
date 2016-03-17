@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 加载Traceur编译器 -->
+    <script src="http://google.github.io/traceur-compiler/bin/traceur.js"
+            type="text/javascript"></script>
+    <!-- 将Traceur编译器用于网页 -->
+    <script src="http://google.github.io/traceur-compiler/src/bootstrap.js"
+            type="text/javascript"></script>
+    <!-- 打开实验选项，否则有些特性可能编译不成功 -->
+
+</head>
+<body>
+<script type="module">
+//    任何有length属性的对象，都可以通过Array.from方法转为数组。
+    let array = Array.from({ 0: "a", 1: "b", 2: "c", length: 3 });
+    document.write(array);    // [ "a", "b" , "c" ]
+
+let array1 = [0,1,2,3,4];
+let arrNew = Array.from(array1, x => x * x);
+console.log(arrNew);
+// 等同于
+let arrNew1 = Array.from(array1).map(x => x * x);
+console.log(arrNew1);
+
+//下面的例子将数组中布尔值为false的成员转为0。
+    var a=Array.from([1, , 2, , 3], (n) => n || 0)
+    console.log(a);
+
+function countSymbols(string) {
+    return Array.from(string).length;
+}
+
+    var b= countSymbols("aaaa");
+console.log(b);
+
+    var person =[{name:'张三'
+
+       },
+       {name:'李四1'
+
+        }]
+var namelength =Array.from(person,x=>x.name.length)
+    console.log(namelength)
+</script>
+</body>
+</html>

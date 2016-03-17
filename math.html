@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 加载Traceur编译器 -->
+    <script src="http://google.github.io/traceur-compiler/bin/traceur.js"
+            type="text/javascript"></script>
+    <!-- 将Traceur编译器用于网页 -->
+    <script src="http://google.github.io/traceur-compiler/src/bootstrap.js"
+            type="text/javascript"></script>
+    <!-- 打开实验选项，否则有些特性可能编译不成功 -->
+
+</head>
+<body>
+<script type="module">
+
+    //Math.trunc()：去除一个数的小数部分，返回整数部分。
+    Math.trunc(4.1) // 4
+    Math.trunc(-4.1) // -4
+
+    //Math.sign()：判断一个数到底是正数、负数、还是零。
+
+    //返回五种值：参数为正数，返回+1；参数为负数，返回-1；参数为0，返回0；参数为-0，返回-0;其他值，返回NaN。
+
+    Math.sign(-5) // -1
+    Math.sign(5) // +1
+    Math.sign(0) // +0
+    Math.sign(-0) // -0
+    Math.sign('aa'); // NaN
+
+    //Math.cbrt：计算一个数的立方根。
+    Math.cbrt(-1); // -1
+    Math.cbrt(0);  // 0
+    Math.cbrt(2);  // 1.2599210498948732
+
+
+//    Math.fround：返回一个数的单精度浮点数形式。
+
+    Math.fround(0);     // 0
+    Math.fround(1.337); // 1.3370000123977661
+    Math.fround(NaN);   // NaN
+
+
+    //Math.hypot：返回所有参数的平方和的平方根。
+    Math.hypot(3, 4);        // 5
+    Math.hypot(3, 4, 5);     // 7.0710678118654755
+    Math.hypot();            // 0
+    Math.hypot(NaN);         // NaN
+    Math.hypot(3, 4, 'foo'); // NaN
+    Math.hypot(3, 4, '5');   // 7.0710678118654755
+    Math.hypot(-3);          // 3
+
+</script>
+</body>
+</html>
