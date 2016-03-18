@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 加载Traceur编译器 -->
+    <script src="http://google.github.io/traceur-compiler/bin/traceur.js"
+            type="text/javascript"></script>
+    <!-- 将Traceur编译器用于网页 -->
+    <script src="http://google.github.io/traceur-compiler/src/bootstrap.js"
+            type="text/javascript"></script>
+    <!-- 打开实验选项，否则有些特性可能编译不成功 -->
+
+</head>
+<body>
+<script type="module">
+
+    function Father () {
+        this.fatherValue = true;
+    }
+
+    Father.prototype.getFatherValue = function () {
+        console.log(this.fatherValue);
+    };
+
+    function Child () {
+        this.childValue = false;
+    }
+
+    // 继承了Father
+    // 此时的原型链为 Child -> Father -> Object
+    Child.prototype = new Father();
+
+    // 使用字面量添加新方法，会导致上一行代码无效
+    // 此时我们设想的原型链被切断，而是变成 Child -> Object
+    Child.prototype = {
+        getChildValue: function () {
+            console.log(this.childValue);
+        }
+    };
+
+    var father = new Father();
+    father.getFatherValue();
+
+    var instance = new Child();
+    instance.getChildValue();  // false
+    instance.getFatherValue(); // error!
+
+
+
+</script>
+</body>
+</html>

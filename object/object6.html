@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 加载Traceur编译器 -->
+    <script src="http://google.github.io/traceur-compiler/bin/traceur.js"
+            type="text/javascript"></script>
+    <!-- 将Traceur编译器用于网页 -->
+    <script src="http://google.github.io/traceur-compiler/src/bootstrap.js"
+            type="text/javascript"></script>
+    <!-- 打开实验选项，否则有些特性可能编译不成功 -->
+
+</head>
+<body>
+<script type="module">
+
+
+    // 父类构造函数
+    function Person (name, age, job) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+    }
+
+    // 父类方法
+    Person.prototype.sayName = function () {
+        console.log(this.name);
+    };
+
+    // --------------
+
+    // 子类构造函数
+    function Student (name, age, job, school) {
+        // 继承父类的所有实例属性
+        Person.call(this, name, age, job);
+        this.school = school; // 添加新的子类属性
+    }
+
+    // 继承父类的原型方法
+    Student.prototype = new Person();
+
+    // 新增的子类方法
+    Student.prototype.saySchool = function () {
+        console.log(this.school);
+    };
+
+    var person1 = new Person('Weiwei', 27, 'Student');
+    var student1 = new Student('Lily', 25, 'Doctor', "Southeast University");
+
+    console.log(person1.sayName === student1.sayName); // true
+
+    person1.sayName();  // Weiwei
+    student1.sayName(); // Lily
+    student1.saySchool(); // Southeast University
+
+
+//    Student.prototype = Object.create(Person.prototype);
+//
+//    console.log(Student.prototype.constructor); // [Function: Person]
+//
+//    // 设置 constructor 属性指向 Student
+//    Student.prototype.consructor = Student;
+//
+//    console.log(Student.prototype.constructor); // [Function: Person]
+//    var student1 = new Student('Lily', 25, 'Doctor', "Southeast University");
+    student1.sayName(); // Lily
+</script>
+</body>
+</html>
