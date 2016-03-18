@@ -1,0 +1,29 @@
+{
+  "name": "cupyong",
+  "version": "1.0.0",
+  "description": "es6新特点",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cupyong/es6-example.git"
+  },
+  "keywords": [
+    "es5",
+    "promise",
+    "co"
+  ],
+  "author": "cupyong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cupyong/es6-example/issues"
+  },
+  "homepage": "https://github.com/cupyong/es6-example",
+  "dependencies": {
+    "async": "^1.5.2",
+    "co": "^4.6.0",
+    "thunkify": "^2.1.2"
+  }
+}
