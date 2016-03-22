@@ -28,7 +28,7 @@ async.parallel([
         }
     ],
     function(err, results){
-       console.log(results);
+        console.log(results);
     });
 
 var test111 = thunkify(fs.readFile);
@@ -52,32 +52,3 @@ var generatorFn=co.wrap(function *(){
 
 
 
-//Generator
-var compute = function* (a, b) {
-    var sum = a + b;
-    console.log(sum);
-    var c = a - b;
-    console.log(c);
-    var d = a * b;
-    console.log(d);
-    var e = a / b;
-    console.log(e);
-};
-//var generator = compute(4, 2);
-//generator.next();
-
-var compute1 = function* (a, b) {
-    var sum = a + b;
-    yield console.log(sum);
-    var c = a - b;
-    yield console.log(c);
-    var d = a * b;
-    yield console.log(d);
-    var e = a / b;
-    console.log(e);
-};
-
-var generator1 = compute1(4, 2);
-generator1.next();
-generator1.next();
-generator1.next();
