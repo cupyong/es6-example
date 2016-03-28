@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 加载Traceur编译器 -->
+    <script src="http://google.github.io/traceur-compiler/bin/traceur.js"
+            type="text/javascript"></script>
+    <!-- 将Traceur编译器用于网页 -->
+    <script src="http://google.github.io/traceur-compiler/src/bootstrap.js"
+            type="text/javascript"></script>
+    <!-- 打开实验选项，否则有些特性可能编译不成功 -->
+
+</head>
+<body>
+<script type="module">
+
+    let array = [1, 4, -5, 10,-9].find((n) => n < 0);
+    document.write("array:", array);  //-4
+    let array1 = [1, 4, -5, 10,-9].find((n) => n < -10);
+    document.write("array:", array1);  //undefined
+
+
+    let array = [1, 5, 10, 15].find(function(value, index, arr) {
+        return value > 9;
+    })
+    document.write(array);  // 10
+
+    //上面代码中，find方法的回调函数可以接受三个参数，依次为当前的值、当前的位置和原数组。
+
+
+    let index = [1, 5, 10, 15].findIndex(function(value, index, arr) {
+        return value > 9;
+    })
+    document.write(index);  // 2
+</script>
+</body>
+</html>

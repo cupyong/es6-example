@@ -14,6 +14,7 @@
 </head>
 <body>
 <script type="module">
+    alert(1);
 //    任何有length属性的对象，都可以通过Array.from方法转为数组。
     let array = Array.from({ 0: "a", 1: "b", 2: "c", length: 3 });
     document.write(array);    // [ "a", "b" , "c" ]
@@ -44,6 +45,16 @@ console.log(b);
         }]
 var namelength =Array.from(person,x=>x.name.length)
     console.log(namelength)
+
+
+
+Array.of(3, 11, 8) // [3,11,8]
+Array.of(3) // [3]
+Array.of(3).length // 1
+
+Array() // []
+Array(3) // [undefined, undefined, undefined]
+Array(3,11,8) // [3, 11, 8]
 </script>
 </body>
 </html>

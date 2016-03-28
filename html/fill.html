@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 加载Traceur编译器 -->
+    <script src="http://google.github.io/traceur-compiler/bin/traceur.js"
+            type="text/javascript"></script>
+    <!-- 将Traceur编译器用于网页 -->
+    <script src="http://google.github.io/traceur-compiler/src/bootstrap.js"
+            type="text/javascript"></script>
+    <!-- 打开实验选项，否则有些特性可能编译不成功 -->
+
+</head>
+<body>
+<script type="module">
+    //   fill()使用给定值，填充一个数组。
+    let arr = ['a', 'b', 'c'].fill(7)
+    document.write(arr);  // [7, 7, 7]
+
+    let newArr = new Array(3).fill(7)
+    document.write(newArr);  // [7, 7, 7]
+
+
+//    上面代码表明，fill方法用于空数组的初始化非常方便。数组中已有的元素，会被全部抹去。
+//
+//    fill()还可以接受第二个和第三个参数，用于指定填充的起始位置和结束位置。
+
+    let newArr = ['a', 'b', 'c'].fill(7, 1, 2)
+    document.write(newArr);   // ['a', 7, 'c']
+
+</script>
+</body>
+</html>
