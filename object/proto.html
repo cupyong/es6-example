@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//    var Person = function(){};
+//    var p = new Person();
+//    alert(p.__proto__ === Person.prototype);
+
+
+var Person = function(){};
+Person.prototype.sayName = function() {
+    alert("My Name is Jacky");
+};
+
+Person.prototype.age = 27;
+var p = new Person();
+p.sayName();
+</script>
