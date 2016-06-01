@@ -13,8 +13,16 @@
 
 </head>
 <body>
-<script type="module">
+<script >
     'use strict';
+
+
+
+    (function(obj){
+        var a=1;
+        console.log(obj)
+    })(this)
+
 
     class Person {
 
@@ -56,6 +64,27 @@
 //
 //    super([arguments]); // 调用父类构造器
 //    super.functionOnParent([arguments]); // 调用父类中的方法
+
+
+
+    class People {
+        constructor(name) { //构造函数
+            this.name = name;
+        }
+        get name() {
+            return this._name.toUpperCase();
+        }
+        set name(name) {
+            this._name = name;
+        }
+        sayName() {
+            console.log(this.name);
+        }
+    }
+    var p = new People("tom");
+    console.log(p.name);    //1
+    console.log(p._name);    //2
+    p.sayName();    //3
 
 </script>
 </body>

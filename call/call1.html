@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function Class(){
+
+        this.name = 'Class';
+
+        this.getName = function(){
+
+            alert( this.name );
+
+        }
+
+    }
+
+    function ClassA(){
+
+        this.name = 'ClassA';
+    }
+
+    var obj = new Class();
+
+    obj.getName.call(ClassA);
+</script>
